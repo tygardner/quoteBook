@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app ='quoteBook' ng-controller ='mainCtrl'>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+	<script src = "app.js"></script>
+	<script src = "controller.js"></script>
+	<script src = "service.js"></script>
+
+	<div ng-repeat ="key in data | filter: filterData" >
+		<ul>
+			<li><span> {{key.text}} </span> <span> {{key.author}} </span>
+		</ul>
+	</div>
+
+	<div class = 'inputs' ng-show='addShow'>
+		<input type='text' placeholder='Quote Text' ng-model="addQuote"></input>
+		<input type='text' placeholder='Quote Author' ng-model="addAuthor"></input>
+		<button ng-click='addData(addQuote, addAuthor)'>Add Quotes</button>
+	</div>
+
+	<div class = 'inputs' ng-show='removeShow'>
+		<input type='text' placeholder='Quote Text' ng-model='removeItem'></input>
+		<button ng-click='removeData()'>Remove Item</button>
+	</div>
+
+	<div class = 'buttons'>
+		<button ng-click= "addShow = !addShow">Add Quote</button>
+		<button ng-click= "removeShow = !removeShow">Remove Quote</button>
+		<button ng-click= > Filter Quotes</button>
+		<input ng-model="filterData" />
+	</div>
+
+</body>
+
+</html>
